@@ -1,18 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>channel-snapshot</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:image" content="/og-image.png" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arizona Mobile - YouTube Channel Snapshot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="container">
+    <header class="header glass-morphism">
+      <div class="header-content">
+        <div class="branding">
+          <h1 class="text-gradient">Arizona Mobile</h1>
+          <p class="subtitle">YouTube Channel Snapshot</p>
+        </div>
+        <div class="tabs">
+          <button class="tab-button active" data-tab="channels">Каналы</button>
+          <button class="tab-button" data-tab="trending">Трендовые</button>
+        </div>
+      </div>
+    </header>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <main>
+      <div class="tab-content active" id="channels-content">
+        <h2 class="section-title">Последние видео с каналов</h2>
+        <div class="video-grid" id="channels-grid">
+          <!-- Здесь будут отображаться последние видео с каналов -->
+          <div class="loading-skeleton">
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="trending-content">
+        <h2 class="section-title">Трендовые видео</h2>
+        <div class="video-grid" id="trending-grid">
+          <!-- Здесь будут отображаться трендовые видео -->
+          <div class="loading-skeleton">
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="video-player" class="video-player-overlay">
+      <div class="video-player-header">
+        <button id="back-button" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer" class="youtube-link">
+          <span>Смотреть на YouTube</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+      <div class="video-container">
+        <iframe id="youtube-iframe" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="youtubeService.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>
